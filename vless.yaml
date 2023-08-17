@@ -22,18 +22,18 @@ proxies:
 #    headers:
 #      Host: kk.difqiang.top
 - name: "vless测试"
-  type: vless
-  server: 172.66.40.61
-  port: 80
-  uuid: 756ed685-89db-4000-8cd4-3d02e3edb70c
+  type: vmess
+  server: 11.wyhkaa0.gq
+  port: 2095
+  uuid: a54fd3bc-3764-40cd-ff5a-471470417eac
   udp: true
   tls: false
-  network: ws
-  servername: hello.kisofe.workers.dev
+  network: tcp
+  servername: 11.wyhkaa0.gq
   ws-opts:
-    path: "/?ed=2048"
+    path:
     headers:
-      Host: hello.kisofe.workers.dev
+      Host:
 - name: "wg测试"
   type: wireguard
   server: 188.114.08.93
