@@ -8,19 +8,6 @@ mode: rule
 log-level: silent
 external-controller: 0.0.0.0:9090
 proxies:
-#- name: "vless测试"
-#  type: vless
-#  server: 193.102.193.0
-#  port: 443 
-#  uuid: ccdecf77-1e79-a1f8-20db51eb868d
-#  udp: true
-#  tls: true
-#  network: ws
-#  servername: kk.difqiang.top 
-#  ws-opts:
-#    path: "/?ed=2048"
-#    headers:
-#      Host: kk.difqiang.top
 - name: "vless测试"
   type: vmess
   server: 11.wyhkaa0.gq
@@ -34,18 +21,6 @@ proxies:
     path:
     headers:
       Host:
-- name: "wg测试"
-  type: wireguard
-  server: 188.114.08.93
-  port: 854
-  ip: 172.16.0.2
-  ipv6: 2606:4640:110:8790:2931:f029:ac06:5a24
-  public-key: bmXOC+F1Fx1SUtzH0JuVo51h2wPfgyo=
-  private-key: EJnKRbtmUtakSmx/iQcn8LxRpRAyFU=
-  udp: true
-  mtu: 1280
-  dns: [1.1.1.1,8.8.8.8]
-  remote-dns-resolve: false
 proxy-groups:
 - name: "节点选择"
   type: select
@@ -53,7 +28,7 @@ proxy-groups:
   - "♻️ 自动选择"
   - DIRECT
   - "vless测试"
-  - "wg测试"
+ 
 - name: "♻️ 自动选择"
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -61,33 +36,33 @@ proxy-groups:
   tolerance: '100'
   proxies:
   - "vless测试"
-  - "wg测试"
+ 
 - name: "国外媒体"
   type: select
   proxies:
   - "节点选择"
   - "♻️ 自动选择"
   - "vless测试"
-  - "wg测试"
+ 
 - name: "电报信息"
   type: select
   proxies:
   - "vless测试"
-  - "wg测试"
+ 
 - name: Ⓜ️ 微软服务
   type: select
   proxies:
   - "全球直连"
   - "节点选择"
   - "vless测试"
-  - "wg测试"
+ 
 - name: "苹果服务器"
   type: select
   proxies:
   - "节点选择"
   - "全球直连"
   - "vless测试"
-  - "wg测试"
+ 
 - name: "全球直连"
   type: select
   proxies:
@@ -116,7 +91,7 @@ proxy-groups:
   - "全球直连"
   - "♻️ 自动选择"
   - "vless测试"
-  - "wg测试"
+ 
 rules:
 - DST-PORT,7895,REJECT
 - DST-PORT,7892,REJECT
